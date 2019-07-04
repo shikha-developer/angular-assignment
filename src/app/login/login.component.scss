@@ -1,0 +1,31 @@
+.login-container{
+    padding-bottom:0;
+    background: orange;
+    color:white;
+    font-size: 20px;
+    text-align: center;
+    .login-text.mat-card-header{
+      display: block;
+    }
+  }
+  .login-heading{
+    background-color: lightblue;
+     height:400px;
+    margin:40px 40px;
+  
+   
+  }
+  .login-text{
+       padding:0;
+  }
+  .input-container{
+    text-align: center;
+   
+  }
+ 
+  .sign-up-button{
+    color:blue;
+  }
+  .invalid-field{
+    color:red;
+}
