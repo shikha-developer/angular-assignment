@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
+import { FormGroup, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { isUserLoggedInService } from '../services/isUserLoggedIn.service';
 
@@ -11,11 +11,11 @@ import { isUserLoggedInService } from '../services/isUserLoggedIn.service';
 })
 export class LoginComponent implements OnInit {
 
-
-  defaultName: String = "shikha";
+  //Default credentials are added for logging
+  defaultName: String = "shikha12";
   defaultPass: String = "test@1234";
   myform: FormGroup;
-  formSubmitted : boolean = false;
+  formSubmitted: boolean = false;
   constructor(
     private router: Router,
     private isUserLoggedInService: isUserLoggedInService,
@@ -30,26 +30,26 @@ export class LoginComponent implements OnInit {
     })
   }
 
-
+  //It should go to signup page if credentials are valid
   onClickSubmit() {
     let givenName: String = this.myform.controls.userName.value;
     let givenPassword: String = this.myform.controls.password.value;
     this.formSubmitted = true;
-    if(this.myform.invalid){
+    if (this.myform.invalid) {
       return;
     }
-    else{
-      if(givenName == this.defaultName && givenPassword == this.defaultPass) {
+    else {
+      if (givenName == this.defaultName && givenPassword == this.defaultPass) {
         this.isUserLoggedInService.setUserloggedIn(true);
         this.router.navigate(['/dashboard', givenName]);
-
       }
       else {
         alert("Please enter valid credential");
       }
-    } 
+    }
   }
-  onClickSignUp(){
-      //todo
+  //navigate to sign up page after clicking on signup button
+  onClickSignUp() {
+    this.router.navigate(['/signup']);
   }
 }

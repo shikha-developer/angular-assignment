@@ -1,38 +1,39 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from './login.component';
+import { SignUpComponent } from './sign-up.component';
 import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
-import { Router, NavigationEnd } from '@angular/router';
-import { isUserLoggedInService } from '../services/isUserLoggedIn.service';
+import { Router } from '@angular/router';
+import { isUserLoggedInService } from '../isUserLoggedIn.service';
 import { DebugElement } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { By } from '@angular/platform-browser';
 
-const RouterMock =  {
-  navigate(){
-    return {};
+class RouterMock {
+  navigate(a:[String, Object?]){
+    return a[0];
   }
 }
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('SignUpComponent', () => {
+  let component: SignUpComponent;
+  let fixture: ComponentFixture<SignUpComponent>;
   let el : HTMLElement;
+  let de : DebugElement;
   let router : Router;
   let service : isUserLoggedInService;
 
   
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [ SignUpComponent ],
       imports:[
         FormsModule,
         ReactiveFormsModule,
         BrowserModule
       ],
       providers:[
-        { provide:Router, useValue : RouterMock },
-         isUserLoggedInService
+        {provide:Router, useClass : RouterMock },
+         isUserLoggedInService,
       ]
     })
     .compileComponents();
@@ -40,7 +41,7 @@ describe('LoginComponent', () => {
 
   beforeEach(() => {
     service = TestBed.get(isUserLoggedInService);
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(SignUpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -49,22 +50,24 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
   it('form should be invalid if fields are invalid',(() => {
-    component.myform.controls['userName'].setValue('');
-    component.myform.controls['password'].setValue('');
-    expect(component.myform.valid).toBeFalsy();
+    component.signupform.controls['userName'].setValue('');
+    component.signupform.controls['password'].setValue('');
+    component.signupform.controls['confirmPassword'].setValue('');
+
+    expect(component.signupform.valid).toBeFalsy();
   }));
-  it('onClickSignUp method should be called on the click',(() => {
+  it('onClickSubmit method should not be called on the click without input',(() => {
     fixture.detectChanges();
-    spyOn(component,'onClickSignUp');
+    spyOn(component,'onClickSubmit');
     el = fixture.debugElement.query(By.css('button')).nativeElement;
     el.click();
-    expect(component.onClickSignUp).toHaveBeenCalled();
+    expect(component.onClickSubmit).not.toHaveBeenCalled();
   }));
   it('onClickSubmit method should call  isUserLoggedIn method of isUserLoggedInService',(() => {
-    fixture.detectChanges();
     spyOn(service,'setUserloggedIn');
-    component.myform.controls['userName'].setValue('shikha');
-    component.myform.controls['password'].setValue('test@1234');
+    component.signupform.controls['userName'].setValue('shikha');
+    component.signupform.controls['password'].setValue('test@1234');
+    component.signupform.controls['confirmPassword'].setValue('test@1234');
 
     component.onClickSubmit();
     expect(service.setUserloggedIn).toHaveBeenCalledWith(true);

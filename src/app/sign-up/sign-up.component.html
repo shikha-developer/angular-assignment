@@ -1,0 +1,53 @@
+<div class="sign-up-container">
+  <div class="sign-up-heading">
+    <h1>Welcome to westPac </h1></div>
+    <div class="form-container">
+      <form [formGroup]="signupform" class="form-group" (ngSubmit)="onClickSubmit()">
+        <div class="form-control">
+          <label>User Name:</label>
+          <input type="text" formControlName="userName">
+            <div *ngIf = "formSubmitted && signupform.controls.userName.errors" class="invalid-field">
+            <div *ngIf = " signupform.controls.userName.errors.required">
+              User Name is Required
+            </div>
+            <div *ngIf = " signupform.controls.userName.errors.minlength">
+              User Name should contain atleast 6 characters
+            </div>
+            <div *ngIf = " signupform.controls.userName.errors.pattern">
+              Use combination of characters and letters with characters at beginning
+            </div>
+        </div>
+        </div>
+
+        <div class="form-control">
+        <label>Password:</label>
+        <input type="password" formControlName="password">
+        <div *ngIf = "formSubmitted && signupform.controls.password.errors" class="invalid-field">
+          <div *ngIf = " signupform.controls.password.errors.required">
+            Password is Required
+          </div>
+          <div *ngIf = " signupform.controls.password.errors.minlength">
+            Atleast 6 characters
+          </div>
+        </div>
+        </div>
+
+        <div class="form-control">
+        <label>Confirm password:</label>
+        <input type="password" #confirmPassword formControlName="confirmPassword">
+        <div *ngIf = "formSubmitted && signupform.controls.confirmPassword.errors" class="invalid-field">
+          <div *ngIf = " signupform.controls.confirmPassword.errors.required">
+            Password is Required
+          </div>
+          <div *ngIf = " signupform.controls.confirmPassword.errors.passwordMustMacth">
+            Passwords Must match
+          </div>
+        </div>
+        </div>
+        <div class="form-control">
+        <button type="submit" value="submit" >Submit</button>
+      </div>
+      </form>
+  
+  </div>
+</div>
