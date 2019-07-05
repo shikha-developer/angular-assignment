@@ -41,7 +41,8 @@ export class LoginComponent implements OnInit {
     else{
       if(givenName == this.defaultName && givenPassword == this.defaultPass) {
         this.isUserLoggedInService.setUserloggedIn(true);
-           //todo
+        this.router.navigate(['/dashboard', givenName]);
+
       }
       else {
         alert("Please enter valid credential");
