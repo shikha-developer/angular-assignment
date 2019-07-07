@@ -28,17 +28,23 @@ export class SignUpComponent implements OnInit {
       userName: ['', [Validators.required,Validators.minLength(6),Validators.pattern('\[a-zA-Z]+[0-9]+')]],
       password: ['', [Validators.required,Validators.minLength(6)] ],
       confirmPassword: ['', Validators.required]
-    },
-      {
-        validator: matchingPassword('password', 'confirmPassword')
-      })
+    }
+      // {
+      //   validator: matchingPassword('password', 'confirmPassword')
+      // }
+      )
   }
   onClickSubmit(){ 
     this.formSubmitted = true;
     if(this.signupform.invalid){
+      console.log(this.signupform.controls.confirmPassword);
+      console.log(this.signupform.controls.userName);
+
+
       return;
     }
     let givenName: String = this.signupform.controls.userName.value;
+   console.log(this.signupform.controls.confirmPassword);
     this.isUserLoggedInService.setUserloggedIn(true);
     this.router.navigate(['/dashboard', givenName]);
   }

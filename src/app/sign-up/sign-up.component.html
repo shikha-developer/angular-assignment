@@ -14,7 +14,7 @@
               User Name should contain atleast 6 characters
             </div>
             <div *ngIf = " signupform.controls.userName.errors.pattern">
-              Use combination of characters and letters with characters at beginning
+              Use combination of characters and then letters for eg: John12
             </div>
         </div>
         </div>
@@ -34,7 +34,7 @@
 
         <div class="form-control">
         <label>Confirm password:</label>
-        <input type="password" #confirmPassword formControlName="confirmPassword">
+        <input type="password"  formControlName="confirmPassword">
         <div *ngIf = "formSubmitted && signupform.controls.confirmPassword.errors" class="invalid-field">
           <div *ngIf = " signupform.controls.confirmPassword.errors.required">
             Password is Required

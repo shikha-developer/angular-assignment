@@ -9,13 +9,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OnlyLoggedInUsersGuard } from './isLoggedInAuthGuard';
 import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    SignUpComponent
+    SignUpComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

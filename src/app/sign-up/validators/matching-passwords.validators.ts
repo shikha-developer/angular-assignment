@@ -8,10 +8,8 @@ export function matchingPassword(
         let control = formGroup.controls[password];
         let matchingControl = formGroup.controls[matchingPassword];
 
-        if (control.value !== matchingControl.value) {
+        if (matchingControl && control.value !== matchingControl.value) {
             matchingControl.setErrors({ passwordMustMacth: true });
-        } else {
-            matchingControl.setErrors(null);
         }
     }
 }
