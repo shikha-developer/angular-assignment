@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
     errorHandler(){
       this.errorDetails  = "Something went wrong, Please try again later";
     }
+    // method after clicking on userslist
     onUserClick(user:UserDetailsConfig){
       this.client = user;
     }
@@ -37,6 +38,6 @@ export class DashboardComponent implements OnInit {
     //unsubscribing observable to prevent memory leaks
     ngOnDestroy(){
       this.userDetailsSubscription.unsubscribe();
-   }
+    }
 
 }

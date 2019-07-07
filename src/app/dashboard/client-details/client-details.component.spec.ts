@@ -16,10 +16,13 @@ describe('ClientDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ClientDetailsComponent);
     component = fixture.componentInstance;
+    component.clientsData = 
+    { "clientName":"John Doe","companyName":"Panorama & Wt group","address":"koregaon park street,Phase ||","contact":"123456789"}
+  
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+ it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

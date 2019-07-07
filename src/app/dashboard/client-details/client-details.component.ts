@@ -9,7 +9,7 @@ import { UserDetailsConfig } from 'src/app/users.config';
 export class ClientDetailsComponent implements OnInit {
 
   @Input() clientsData  : UserDetailsConfig;
-
+  //input property from parent component
   constructor() { }
 
   ngOnInit() {

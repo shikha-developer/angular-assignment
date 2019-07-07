@@ -63,11 +63,20 @@ describe('LoginComponent', () => {
   it('onClickSubmit method should call  isUserLoggedIn method of isUserLoggedInService',(() => {
     fixture.detectChanges();
     spyOn(service,'setUserloggedIn');
-    component.myform.controls['userName'].setValue('shikha');
+    component.myform.controls['userName'].setValue('shikha12');
     component.myform.controls['password'].setValue('test@1234');
 
     component.onClickSubmit();
     expect(service.setUserloggedIn).toHaveBeenCalledWith(true);
+  }));
+  it('onClickSubmit method should not call  isUserLoggedIn if credentials are wrong',(() => {
+    fixture.detectChanges();
+    spyOn(service,'setUserloggedIn');
+    component.myform.controls['userName'].setValue('wrongtest');
+    component.myform.controls['password'].setValue('test@1234');
+
+    component.onClickSubmit();
+    expect(service.setUserloggedIn).not.toHaveBeenCalled();
   }));
 
 });
