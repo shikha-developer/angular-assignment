@@ -7,8 +7,8 @@ export function matchingPassword(
     return (formGroup: FormGroup) => {
         let control = formGroup.controls[password];
         let matchingControl = formGroup.controls[matchingPassword];
-
-        if (matchingControl && control.value !== matchingControl.value) {
+        // Compares the two fiels only if second comapring field exist
+        if (matchingControl.value && control.value !== matchingControl.value) {
             matchingControl.setErrors({ passwordMustMacth: true });
         }
     }

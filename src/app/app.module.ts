@@ -10,6 +10,7 @@ import { OnlyLoggedInUsersGuard } from './isLoggedInAuthGuard';
 import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ClientDetailsComponent } from './dashboard/client-details/client-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     LoginComponent,
     DashboardComponent,
     SignUpComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ClientDetailsComponent
   ],
   imports: [
     BrowserModule,

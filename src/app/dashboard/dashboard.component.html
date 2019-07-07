@@ -1,14 +1,15 @@
-<p>
-  Welcome to dashboard {{userName}}!
-</p>
-<div *ngIf = "usersData">
-<table>
-  <tr *ngFor = "let user of usersData" >
-  <td>My name is {{user.userName}} </td>
-    <td>Age:{{user.age}}</td>
-    <td>address:{{user.address}}</td>
-    <td>contact:{{user.contact}}</td>
-  </tr>
-  </table>
+<div class="dashboard-container">
+  <h1>
+    Welcome to Dashboard {{userName}}!
+  </h1>
+  <div *ngIf="clientsData" class= "clients-data">
+    <p>You have following clients {{userName}}, Please click each to know the full details-</p>
+    <ul class= "client-list">
+        <li  (click) = "onUserClick(user)" *ngFor = "let user of clientsData" >
+        {{user.clientName}} 
+        </li>
+        </ul>
+    <app-client-details *ngIf="client" [clientsData]="client"></app-client-details>
+  </div>
+  <div *ngIf="errorDetails">{{errorDetails}}</div>
 </div>
-<div  *ngIf = "errorDetails">{{errorDetails}}</div>

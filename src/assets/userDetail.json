@@ -1,6 +1,11 @@
- [
-{ "userName":"John","age":"24","address":"koregaon park","contact":"123456789"},
-{ "userName":"Dimmy","age":"24","address":"koregaon park","contact":"123456789"},
-{ "userName":"Ross","age":"24","address":"koregaon park","contact":"123456789"},
-{ "userName":"Kayli","age":"24","address":"koregaon park","contact":"123456789"}
+[
+    { "clientName":"John Doe","companyName":"Panorama & Wt group","address":"koregaon park street,Phase ||","contact":"123456789"},
+    { "clientName":"Dimmy Taylor","companyName":"Industrial Banks Limited","address":"KT tower,Wall street","contact":"241415125"},
+    { "clientName":"Ross Doe","companyName":"Panorama & company","address":"koregaon park,Wall street","contact":"123456789"},
+    { "clientName":"Kayli Jenner","companyName":"WTBank industries","address":"koregaon park, DK Street","contact":"35345647"},
+    { "clientName":"Kayli Swift","companyName":"XYZ industries","address":"KT tower, DK Street","contact":"35345647"},
+    { "clientName":"Taylor Pitt","companyName":"WTBank industries","address":"KT tower, DK Street","contact":"35345647"},
+    { "clientName":"Bred Doe","companyName":"ABC industries","address":"koregaon park, DK Street","contact":"35345647"}
+
+
 ]

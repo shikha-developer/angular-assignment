@@ -10,7 +10,6 @@ export class OnlyLoggedInUsersGuard implements CanActivate {
 
   canActivate() {
     
-    console.log("OnlyLoggedInUsers",this.isUserLoggedInService);
     if (this.isUserLoggedInService.isUserLoggedIn()) { 
       return true;
     } else {
