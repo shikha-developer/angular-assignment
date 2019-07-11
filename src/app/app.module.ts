@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { OnlyLoggedInUsersGuard } from './isLoggedInAuthGuard';
+import { LogInAuthGuard } from './logInAuthGuard';
 import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
@@ -28,7 +28,7 @@ import { ClientDetailsComponent } from './dashboard/client-details/client-detail
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [OnlyLoggedInUsersGuard],
+  providers: [LogInAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

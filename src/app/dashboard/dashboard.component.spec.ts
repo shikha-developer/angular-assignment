@@ -2,33 +2,32 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
 import { ActivatedRoute } from '@angular/router';
-import { UserdetailService } from '../services/userdetail.service';
+import { UserDetailService } from '../services/user-detail.service';
 import { ClientDetailsComponent } from './client-details/client-details.component';
 import { userDetailsMock } from '../mocks/user-details-mock';
 import {  of } from 'rxjs';
 
 
-const d = { snapshot : { params:{name:'testUser'}} }
+const activatedRouteMock = { snapshot : { params:{name:'testUser'}} };
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
-  let userService : UserdetailService
+  let userService : UserDetailService
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DashboardComponent,
       ClientDetailsComponent ],
       providers:[
-        {provide:ActivatedRoute,useValue: d},
-        {provide:UserdetailService, useClass: userDetailsMock},
-
+        {provide:ActivatedRoute,useValue: activatedRouteMock},
+        {provide:UserDetailService, useClass: userDetailsMock}
       ]
     })
     .compileComponents().then(()=>{
       fixture = TestBed.createComponent(DashboardComponent);
       component = fixture.componentInstance;
-      userService = TestBed.get(UserdetailService);
+      userService = TestBed.get(UserDetailService);
       fixture.detectChanges();
     });
   }));

@@ -9,7 +9,7 @@ export function matchingPassword(
         let matchingControl = formGroup.controls[matchingPassword];
         // Compares the two fiels only if second comapring field exist
         if (matchingControl.value && control.value !== matchingControl.value) {
-            matchingControl.setErrors({ passwordMustMacth: true });
+            matchingControl.setErrors({ passwordmustmatch: true });
         }
     }
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
-import { isUserLoggedInService } from '../services/isUserLoggedIn.service';
-
+import { logInService } from '../services/log-in.service';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +11,13 @@ import { isUserLoggedInService } from '../services/isUserLoggedIn.service';
 export class LoginComponent implements OnInit {
 
   //Default credentials are added for logging
-  defaultName: String = "shikha12";
-  defaultPass: String = "test@1234";
+  defaultName: string = "shikha12";
+  defaultPass: string = "test@1234";
   myform: FormGroup;
   formSubmitted: boolean = false;
   constructor(
     private router: Router,
-    private isUserLoggedInService: isUserLoggedInService,
+    private logInService: logInService,
     private formBuilder: FormBuilder) {
   }
 
@@ -32,15 +31,15 @@ export class LoginComponent implements OnInit {
 
   //It should go to signup page if credentials are valid
   onClickSubmit() {
-    let givenName: String = this.myform.controls.userName.value;
-    let givenPassword: String = this.myform.controls.password.value;
+    let givenName: string = this.myform.controls.userName.value;
+    let givenPassword: string = this.myform.controls.password.value;
     this.formSubmitted = true;
     if (this.myform.invalid) {
       return;
     }
     else {
       if (givenName == this.defaultName && givenPassword == this.defaultPass) {
-        this.isUserLoggedInService.setUserloggedIn(true);
+        this.logInService.setUserloggedIn(true);
         this.router.navigate(['/dashboard', givenName]);
       }
       else {

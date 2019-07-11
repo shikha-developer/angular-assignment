@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { UserDetailsConfig } from '../users.config';
+import { UserDetailsConfig } from '../shared/interfaces/users.config';
 
 @Injectable()
 export class userDetailsMock {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserDetailsConfig } from 'src/app/users.config';
+import { UserDetailsConfig } from 'src/app/shared/interfaces/users.config';
 
 @Component({
   selector: 'app-client-details',

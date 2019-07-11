@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-    providedIn:'root'
+    providedIn: 'root'
 })
 
-export class isUserLoggedInService{
+export class logInService {
     userLogIn = false;
     // Method to tell if user is logged in or not for accessing dashboard component
-    isUserLoggedIn():boolean{
+    isUserLoggedIn(): boolean {
         return this.userLogIn;
     }
     // Set the value of userLogIn property if user has logged In
-    setUserloggedIn(value){
+    setUserloggedIn(value: boolean) {
         this.userLogIn = value;
     }
 }
